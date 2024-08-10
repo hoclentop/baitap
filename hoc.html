@@ -1,0 +1,30 @@
+<html xmlns:m="http://www.w3.org/1998/Math/MathML">
+<head>
+ <meta charset="utf8"/>
+ <title>hsgtin.vn</title>
+ <meta name="author" value="Tran Huu Nam"/>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+ <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-MML-AM_CHTML' async></script>
+ <script>
+  $(document).ready(function(){
+      $.urlParam = function(name){
+		var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+		if (results) return results[1];
+		return  "";
+	}
+   var f=$.urlParam("f")+".md";
+   
+   $.get( "hoc/"+f, function(data) {
+	  $("#noidung").html(data);
+	});
+      
+    });
+    </script> 
+
+
+</head>
+<body>
+  <div id="noidung"></div>
+
+</body>
+</html>
